@@ -74,8 +74,6 @@ _[Ss]cripts
 *.ncrunchsolution
 *.dot[Cc]over
 *.config
-Interdisciplinary/.vs/Interdisciplinary/DesignTimeBuild/.dtbcache.v2
 *.v2
 Interdisciplinary/.vs/Interdisciplinary/DesignTimeBuild/.dtbcache.v2
-Interdisciplinary/.vs/Interdisciplinary/DesignTimeBuild/.dtbcache.v2
-*.v2
+Interdisciplinary/desktop.ini
