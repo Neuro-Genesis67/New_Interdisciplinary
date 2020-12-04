@@ -20,9 +20,22 @@
     padding: 20px;
 }
 
-span.block {
-    width: 100%;
-    background: #740000;
+.box {
+    background-color: #740000;
+    width: 80%;
+    height: 8px;
+    position: relative;
+    left: 50%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 50px;
+}
+
+.exampleText {
+    color: #740000;
+    margin-top: 0;
+    font-size: 1px;
+    margin-bottom: 50px;
 }
 
 img {
@@ -31,6 +44,8 @@ img {
 
 h1 {
     text-align: center;
+    margin-top: 50px;
+    margin-bottom: -2px;
 }
 
 h2 {
