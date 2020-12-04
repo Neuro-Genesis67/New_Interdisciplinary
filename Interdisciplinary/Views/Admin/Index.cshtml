@@ -22,12 +22,12 @@
     </div>
 
     <form asp-action="Index" method="post">
-        <label asp-for="Username">Username: </label>
+        <label asp-for="Username">USERNAME </label>
         @*<input type="text" name="username" placeholder="username" required /><br />*@
         <input asp-for="Username" />
         <div><span asp-validation-for="Username"></span></div><br />
 
-        <label asp-for="Password">Password: </label>
+        <label asp-for="Password">PASSWORD </label>
         @*<input type="password" name="password" placeholder="password" required /><br />*@
         <input asp-for="Password" type="password" />
         <div><span asp-validation-for="Password"></span></div><br />
