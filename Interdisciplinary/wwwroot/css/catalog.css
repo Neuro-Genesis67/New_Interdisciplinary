@@ -1,0 +1,102 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+.nav {
+    background-color: #740000;
+    text-decoration: none;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+    padding: 20px;
+}
+
+span.block {
+    width: 100%;
+    background: #740000;
+}
+
+img {
+    width: 400px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-transform: uppercase;
+    margin: 7px 0px 7px 0px;
+    text-align: left;
+}
+
+h3 {
+    color: #740000;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 13px 0px 7px 0px;
+    text-align: left;
+}
+
+.date {
+    color: #7D7D7D;
+    margin: 7px 0px 7px 0px;
+    text-align: left;
+}
+
+.tickets {
+    color: #225702;
+    margin: 7px 0px 10px 0px;
+    text-align: left;
+}
+
+.btn-group .button {
+    background-color: #740000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+    font-weight: bold;
+}
+
+.btn-group .price {
+    background-color: #7D7D7D;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: left;
+    font-weight: bold;
+}
+
+.btn-group .button:hover {
+    background-color: #5C0000;
+}
+
+.btn-group .button:focus {
+    background-color: #5C0000;
+    outline: none;
+    border: none;
+}
+
+.btn-group .price:focus {
+    outline: none;
+    border: none;
+}
