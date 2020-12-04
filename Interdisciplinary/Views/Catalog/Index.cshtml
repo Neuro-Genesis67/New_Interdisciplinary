@@ -14,10 +14,11 @@
         <li>MY CART</li>
     </ul>
 
-    <header>
-        <h1>REPERTOIRE</h1>
-        <span class="block"></span>
-    </header>
+
+    <h1>REPERTOIRE</h1>
+    <div class="box">
+        <p class="exampleText">.</p>
+    </div>
 
     @*<img src="https://i.ibb.co/zPGkR3q/la-traviata.png" alt="La Traviata">
         <h3>Genre</h3>
@@ -30,7 +31,8 @@
         </div>*@
 
     @{
-        foreach (Show show in @ViewData["Shows"] as List<Show>) {
+        foreach (Show show in @ViewData["Shows"] as List<Show>)
+        {
             <img src="@show.ImageUrl" alt="@show.Title">
             <h3>@show.Genre</h3>
             <h2>@show.Title</h2>
