@@ -38,10 +38,6 @@
     margin-bottom: 50px;
 }
 
-img {
-    width: 400px;
-}
-
 h1 {
     text-align: center;
     margin-top: 50px;
@@ -115,3 +111,22 @@ h3 {
     outline: none;
     border: none;
 }
+
+/* GRID */
+
+.grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    padding: 0 5%;
+}
+
+.grid-item {
+    width: 90%;
+    padding: 0 5%;
+    text-align: center;
+}
+
+    .grid-item img {
+        width: 100%;
+    }
