@@ -35,7 +35,11 @@ namespace Interdisciplinary.Controllers {
             }
             return View();
         }
-      
+
+        public IActionResult CreateShow() {
+            return View("CreateShow");
+        }
+
         // Validation code from Jes
         //if (ModelState.IsValid) {​​ // validation succeeded
 
