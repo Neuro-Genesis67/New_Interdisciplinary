@@ -21,6 +21,7 @@
     font-size: 1px;
 }
 
+
 h1 {
     text-align: center;
     margin-bottom: -2px;
@@ -41,12 +42,25 @@ h3 {
 }
 
 form {
+    width: 80%;
+    margin: 25px auto;
     text-align: center;
-    margin-top: 25px;
+}
+
+label, input {
+    display: inline-block;
+    margin: 10px;
 }
 
 label {
+    width: 30%;
+    text-align: right;
     font-weight: bold;
+}
+
+label + input {
+    border-style: solid;
+    margin: 0 30% 0 3%;
 }
 
 button {
@@ -54,6 +68,7 @@ button {
     border: none;
     color: white;
     padding: 8px 25px;
+    margin: 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -62,12 +77,20 @@ button {
     font-weight: bold;
 }
 
+.green, .green button {
+    background-color: #225702;
+}
+
+.gray, .gray button {
+    background-color: #7D7D7D;
+}
+
 button:hover {
-    background-color: #5C0000;
+    opacity: 0.8;
 }
 
 button:focus {
-    background-color: #5C0000;
+    opacity: 0.8;
     outline: none;
     border: none;
 }

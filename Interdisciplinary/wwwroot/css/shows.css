@@ -4,7 +4,6 @@
     font-family: 'Barlow', sans-serif;
 }
 
-
 .box {
     background-color: #740000;
     width: 40%;
@@ -30,6 +29,7 @@ h2 {
     text-transform: uppercase;
     margin: 7px 0px 7px 0px;
     text-align: left;
+    text-transform: uppercase;
 }
 
 h3 {
@@ -43,6 +43,7 @@ h3 {
 table, td, th {
     border: 2px solid black;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 table {
@@ -50,10 +51,6 @@ table {
     width: 30%;
     margin: 50px auto;
     text-align: center;
-}
-
-label {
-    font-weight: bold;
 }
 
 .red, .red a {
@@ -70,7 +67,6 @@ label {
 }
 
 a {
-    
     border: none;
     color: white;
     text-align: center;
