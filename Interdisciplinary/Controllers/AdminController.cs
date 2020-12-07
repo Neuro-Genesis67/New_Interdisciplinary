@@ -34,5 +34,17 @@ namespace Interdisciplinary.Controllers {
             }
             return View();
         }
+      
+        // Validation code from Jes
+        //if (ModelState.IsValid) {​​ // validation succeeded
+
+        // return View("success", model);
+
+        //}​​
+        //else {​​ // validation failed
+
+        //return View(model);
+        //}​​
+
     }
 }
