@@ -29,6 +29,7 @@ namespace Interdisciplinary.Controllers {
 
             foreach (Admin dbAdmin in db.Admins) {
                 if (dbAdmin.Username == admin.Username && dbAdmin.Password == admin.Password) {
+                  
                     return View("Shows", shows);
                 }
             }
@@ -40,11 +41,11 @@ namespace Interdisciplinary.Controllers {
 
         // return View("success", model);
 
-        //}​​
-        //else {​​ // validation failed
+        //}
+        //else { // validation failed
 
         //return View(model);
-        //}​​
+        //}
 
     }
 }

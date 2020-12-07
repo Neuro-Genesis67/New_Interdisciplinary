@@ -1,4 +1,4 @@
-﻿@model ICollection<Show>
+@model ICollection<Show>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,16 +11,51 @@
     <title> Admin shows </title>
 </head>
 <body>
+  
+    <h1>SHOW LIST</h1>
+    <div class="box">
+        <p class="exampleText">.</p>
+    </div>
+
+    <table>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td class="green"><button>UPDATE</button></td>
+            <td class="red"><button>DELETE</button></td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td colspan="3" class="gray"><button>CREATE SHOW</button></td>
+        </tr>
+    </table>
 
 
-
-
-    <h1>Admin shows list</h1>
+    <h2>Admin shows list</h2>
    
     @{ 
         foreach(Show show in Model) {
-            <h1>@show.Title</h1>
+            <h2>@show.Title</h2>
         }
+
     }
 
 
