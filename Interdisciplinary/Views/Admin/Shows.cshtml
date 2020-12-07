@@ -18,7 +18,18 @@
     </div>
 
     <table>
-        <tr>
+
+        @{
+            foreach (Show show in Model) {
+                <tr>
+                    <td>@show.Title</td>
+                    <td class="green"><a>UPDATE</a></td>
+                    <td class="red"><a>DELETE</a></td>
+                </tr>
+            }
+
+        }
+        @*<tr>
             <td>LA TRAVIATA</td>
             <td class="green"><a>UPDATE</a></td>
             <td class="red"><a>DELETE</a></td>
@@ -42,9 +53,9 @@
             <td>LA TRAVIATA</td>
             <td>UPDATE</td>
             <td>DELETE</td>
-        </tr>
+        </tr>*@
         <tr>
-            <td colspan="3" class="gray"><a href="@Url.Action("CreateShows")">CREATE SHOW</a></td>
+            <td colspan="3" class="gray"><a href="@Url.Action("CreateShow")">CREATE SHOW</a></td>
         </tr>
     </table>
 

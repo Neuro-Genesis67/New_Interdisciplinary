@@ -47,7 +47,11 @@ namespace Interdisciplinary {
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Catalog}/{action=Index}/{id?}");
+                    pattern: "{controller=Admin}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                   name: "default",
+                   pattern: "{controller=Admin}/{action=CreateShow}/{id?}");
             });
         }
     }
