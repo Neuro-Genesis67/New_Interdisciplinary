@@ -30,21 +30,26 @@
             <button class="price">289DKK</button>
         </div>*@
 
+    <section class="grid-container">
     @{
         foreach (Show show in @ViewData["Shows"] as List<Show>)
         {
-            <img src="@show.ImageUrl" alt="@show.Title">
-            <h3>@show.Genre</h3>
-            <h2>@show.Title</h2>
-            <p class="date">@show.Date</p>
-            <p class="tickets">@show.AvailableTickets</p>
-            <div class="btn-group">
-                <button class="button">BUY TICKET</button>
-                <button class="price">@show.Price DKK</button>
+            <div class="grid-item">
+                <img src="@show.ImageUrl" alt="@show.Title">
+                <h3>@show.Genre</h3>
+                <h2>@show.Title</h2>
+                <p class="date">@show.Date</p>
+                <p class="tickets">@show.AvailableTickets</p>
+                <div class="btn-group">
+                    <button class="button">BUY TICKET</button>
+                    <button class="price">@show.Price DKK</button>
+                </div>
             </div>
         }
 
     }
+    </section>
+    
     <footer></footer>
 
 </body>
