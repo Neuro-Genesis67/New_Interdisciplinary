@@ -1,4 +1,4 @@
-@model ICollection<Show>
+﻿@model ICollection<Show>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,8 @@
     <table>
         <tr>
             <td>LA TRAVIATA</td>
-            <td class="green"><button>UPDATE</button></td>
-            <td class="red"><button>DELETE</button></td>
+            <td class="green"><a>UPDATE</a></td>
+            <td class="red"><a>DELETE</a></td>
         </tr>
         <tr>
             <td>LA TRAVIATA</td>
@@ -44,7 +44,7 @@
             <td>DELETE</td>
         </tr>
         <tr>
-            <td colspan="3" class="gray"><button>CREATE SHOW</button></td>
+            <td colspan="3" class="gray"><a href="@Url.Action("CreateShows")">CREATE SHOW</a></td>
         </tr>
     </table>
 

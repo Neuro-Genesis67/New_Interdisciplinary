@@ -40,39 +40,20 @@ h3 {
     text-align: left;
 }
 
-table, td, th {
-    border: 2px solid black;
-    font-weight: bold;
-}
-
-table {
-    border-collapse: collapse;
-    width: 30%;
-    margin: 50px auto;
+form {
     text-align: center;
+    margin-top: 25px;
 }
 
 label {
     font-weight: bold;
 }
 
-.red, .red a {
+button {
     background-color: #740000;
-}
-
-.green, .green a {
-    background-color: #225702;
-}
-
-.gray, .gray a {
-    background-color: #7D7D7D;
-    color: black;
-}
-
-a {
-    
     border: none;
     color: white;
+    padding: 8px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -81,7 +62,12 @@ a {
     font-weight: bold;
 }
 
-a:focus {
+button:hover {
+    background-color: #5C0000;
+}
+
+button:focus {
+    background-color: #5C0000;
     outline: none;
     border: none;
 }
