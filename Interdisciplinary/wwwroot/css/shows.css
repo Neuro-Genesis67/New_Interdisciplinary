@@ -64,6 +64,11 @@ label {
     background-color: #225702;
 }
 
+.gray, .gray button {
+    background-color: #7D7D7D;
+    color: black;
+}
+
 button {
     
     border: none;
