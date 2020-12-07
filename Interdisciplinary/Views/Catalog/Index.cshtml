@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model ICollection<Show>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -31,25 +33,23 @@
         </div>*@
 
     <section class="grid-container">
-    @{
-        foreach (Show show in @ViewData["Shows"] as List<Show>)
-        {
-            <div class="grid-item">
-                <img src="@show.ImageUrl" alt="@show.Title">
-                <h3>@show.Genre</h3>
-                <h2>@show.Title</h2>
-                <p class="date">@show.Date</p>
-                <p class="tickets">@show.AvailableTickets</p>
-                <div class="btn-group">
-                    <button class="button">BUY TICKET</button>
-                    <button class="price">@show.Price DKK</button>
+        @{
+            foreach (Show show in Model) {
+                <div class="grid-item">
+                    <img src="@show.ImageUrl" alt="@show.Title">
+                    <h3>@show.Genre</h3>
+                    <h2>@show.Title</h2>
+                    <p class="date">@show.Date.Year/@show.Date.Month/@show.Date.Day</p>
+                    <p class="tickets">@show.AvailableTickets Available tickets</p>
+                    <div class="btn-group">
+                        <button class="button">BUY TICKET</button>
+                        <button class="price">@show.Price DKK</button>
+                    </div>
                 </div>
-            </div>
+            }
         }
-
-    }
     </section>
-    
+
     <footer></footer>
 
 </body>
