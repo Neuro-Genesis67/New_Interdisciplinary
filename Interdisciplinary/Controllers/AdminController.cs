@@ -36,12 +36,6 @@ namespace Interdisciplinary.Controllers {
 
         public IActionResult Shows() {
 
-            List<Show> shows = new List<Show>();
-            foreach (Show dbShow in dataContext.Shows.ToList()) {
-                shows.Add(dbShow);
-            }
-
-            ViewData["Shows"] = shows;
             return View();
         }
 
