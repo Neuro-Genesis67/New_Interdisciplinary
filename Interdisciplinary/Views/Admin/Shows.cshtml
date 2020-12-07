@@ -1,6 +1,6 @@
-﻿@{
+﻿@*@{
     @model Show
-}
+}*@
 
 
 <!DOCTYPE html>
@@ -18,15 +18,50 @@
 
 
 
-    <h1>Admin shows list</h1>
+    <h1>SHOW LIST</h1>
+    <div class="box">
+        <p class="exampleText">.</p>
+    </div>
 
-    @* 
+    <table>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td class="green"><button class="greenUpdate">UPDATE</button></td>
+            <td class="red"><button>DELETE</button></td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>LA TRAVIATA</td>
+            <td>UPDATE</td>
+            <td>DELETE</td>
+        </tr>
+        <tr>
+            <td>CREATE SHOW</td>
+        </tr>
+    </table>
+
+
+    @*
         Unfinished, need to add an update and a delete button on every show on the list (Like on figma)
     *@
     @{
-        foreach (Show show in @ViewData["Shows"] as List<Show>) {
-            <h2>@show.Title</h2> 
-        }
+        @*foreach (Show show in @ViewData["Shows"] as List<Show>) {
+                <h2>@show.Title</h2>
+            }*@
 
     }
 

@@ -27,7 +27,7 @@ namespace Interdisciplinary.Controllers {
         public IActionResult Index(Admin admin) {
             foreach (Admin dbAdmin in dataContext.Admins) {
                 if (dbAdmin.Username == admin.Username && dbAdmin.Password == admin.Password) {
-                    return View("Shows", admin);
+                    return View("Shows");
                 }
             }
 

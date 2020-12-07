@@ -1,0 +1,94 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Barlow', sans-serif;
+}
+
+
+.box {
+    background-color: #740000;
+    width: 40%;
+    height: 8px;
+    position: relative;
+    left: 50%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.exampleText {
+    color: #740000;
+    margin-top: 0;
+    font-size: 1px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: -2px;
+}
+
+h2 {
+    text-transform: uppercase;
+    margin: 7px 0px 7px 0px;
+    text-align: left;
+}
+
+h3 {
+    color: #740000;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin: 13px 0px 7px 0px;
+    text-align: left;
+}
+
+table, td, th {
+    border: 2px solid black;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 30%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+.red {
+    background-color: #740000;
+}
+
+.green {
+    background-color: #225702;
+}
+
+button {
+    background-color: #740000;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    td button .greenUpdate {
+        background-color: #225702;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+button:focus {
+    outline: none;
+    border: none;
+}
