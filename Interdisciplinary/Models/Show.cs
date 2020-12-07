@@ -8,16 +8,21 @@ namespace Interdisciplinary.Models {
     public class Show {
 
         public int    ShowId           { get; set; } // PK
-        public string CreatedBy        { get; set; } // FK
-        public int    GenreId          { get; set; } // FK
+        
         // ---------------------
+
         public string Title            { get; set; }
-        public string Genre            { get; set; }
         public int    AvailableTickets { get; set; }
         public int    Price            { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime Date   { get; set; }
-        public string ImageUrl { get; set; }
-      }
+        public DateTime Date           { get; set; }
+        public string ImageUrl         { get; set; }
+
+        public Genre Genre            { get; set; } // Navigation property
+        public int GenreId            { get; set; } // FK
+
+        public Admin Admin            { get; set; } // Navigation propery
+        public int AdminId            { get; set; } // FK
+    }
 }

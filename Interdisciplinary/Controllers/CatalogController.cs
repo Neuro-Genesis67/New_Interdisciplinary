@@ -9,21 +9,16 @@ using System.Threading.Tasks;
 namespace Interdisciplinary.Controllers {
     public class CatalogController : Controller {
 
-        private InterdisciplinaryContext dataContext;
+        private InterdisciplinaryContext db;
 
         public CatalogController(InterdisciplinaryContext dbContext) {
-            dataContext = dbContext;
+            db = dbContext;
         }
 
         public IActionResult Index() {
+            ICollection<Show> shows = db.Shows.ToList<Show>();
 
-            List<Show> shows = new List<Show>();
-            foreach (Show dbShow in dataContext.Shows.ToList()) {
-                shows.Add(dbShow);
-            }
-
-            ViewData["Shows"] = shows;
-            return View();
+            return View(shows);
         }
 
     }

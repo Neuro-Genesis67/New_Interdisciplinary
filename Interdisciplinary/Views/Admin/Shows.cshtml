@@ -1,7 +1,4 @@
-﻿@*@{
-    @model Show
-}*@
-
+@model ICollection<Show>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +11,7 @@
     <title> Admin shows </title>
 </head>
 <body>
-
-
-
-
+  
     <h1>SHOW LIST</h1>
     <div class="box">
         <p class="exampleText">.</p>
@@ -55,17 +49,14 @@
     </table>
 
 
-    @*
-        Unfinished, need to add an update and a delete button on every show on the list (Like on figma)
-    *@
-    @{
-        @*foreach (Show show in @ViewData["Shows"] as List<Show>) {
-                <h2>@show.Title</h2>
-            }*@
+    <h2>Admin shows list</h2>
+   
+    @{ 
+        foreach(Show show in Model) {
+            <h2>@show.Title</h2>
+        }
 
     }
-
-
 
 
 
