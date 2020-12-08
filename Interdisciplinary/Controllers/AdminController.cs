@@ -35,23 +35,27 @@ namespace Interdisciplinary.Controllers {
             return View();
         }
 
-        // POST: Show/Create
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ShowId,Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show)
+        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Add(show);
                 await db.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["AdminId"] = new SelectList(db.Admins);
-            ViewData["GenreId"] = new SelectList(db.Genres);
-            return View(show);
+
+            ICollection<Show> shows = db.Shows.ToList();
+            return View("Shows", shows);
         }
 
         public IActionResult CreateShow() {
+
+            //selectbox med 
+            // 1: valgmuligheder
+            // 2: De rette beskrivelser (genre title og ikke genreId)
+            ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId");
+            ViewData["GenreId"] = new SelectList(db.Genres, "GenreId", "Title");
+
             return View("CreateShow");
         }
 

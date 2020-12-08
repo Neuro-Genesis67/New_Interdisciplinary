@@ -14,78 +14,41 @@
 <body>
 
     <h1>CREATE SHOW</h1>
-    <!--<div class="box">
-        <p class="exampleText">.</p>
-    </div>
-
-    <form>
-        <label>IMAGE URL </label>
-        <input /> <br />
-
-        <label>GENRE </label>
-        <input /> <br />
-
-        <label>TITLE </label>
-        <input /> <br />
-
-        <label>DATE </label>
-        <input /> <br />
-
-        <label>AVAILABLE TICKETS </label>
-        <input /> <br />
-
-        <label>TICKET PRICE </label>
-        <input /> <br />
-
-        <button type="submit" class="green">SAVE</button>
-        <button type="submit" class="gray">CANCEL</button>
-    </form>-->
+    
 
 
-    <form asp-action="CreateShow">
-        <div asp-validation-summary="ModelOnly"></div>
-        <div>
-            <label asp-for="Title" class="control-label"></label>
-            <input asp-for="Title" class="form-control" />
-            <span asp-validation-for="Title" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="AvailableTickets" class="control-label"></label>
-            <input asp-for="AvailableTickets" class="form-control" />
-            <span asp-validation-for="AvailableTickets" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="Price" class="control-label"></label>
-            <input asp-for="Price" class="form-control" />
-            <span asp-validation-for="Price" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="Date" class="control-label"></label>
-            <input asp-for="Date" class="form-control" />
-            <span asp-validation-for="Date" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="ImageUrl" class="control-label"></label>
-            <input asp-for="ImageUrl" class="form-control" />
-            <span asp-validation-for="ImageUrl" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="GenreId" class="control-label"></label>
-            <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
-        </div>
-        <div>
-            <label asp-for="AdminId" class="control-label"></label>
-            <select asp-for="AdminId" class="form-control" asp-items="ViewBag.AdminId"></select>
-        </div>
+    <form asp-action="CreateShow" method="post">
+        <label asp-for="Title">Title </label>
+        <input asp-for="Title" />
+        <div><span asp-validation-for="Title"></span></div><br />
 
-        <div>
-            <button type="submit" class="green">SAVE</button>
-        </div>
+        <label asp-for="AvailableTickets">AvailableTickets </label>
+        <input asp-for="AvailableTickets" />
+        <div><span asp-validation-for="AvailableTickets"></span></div><br />
+
+        <label asp-for="Price">Price </label>
+        <input asp-for="Price" />
+        <div><span asp-validation-for="Price"></span></div><br />
+
+        <label asp-for="ImageUrl">ImageUrl </label>
+        <input asp-for="ImageUrl" />
+        <div><span asp-validation-for="ImageUrl"></span></div><br />
+
+        <label asp-for="Date">Date </label>
+        <input asp-for="Date" />
+        <div><span asp-validation-for="Date"></span></div><br />
+
+        <label asp-for="AdminId"></label>
+        <select asp-for="AdminId" asp-items="ViewBag.AdminId"></select>
+        <span asp-validation-for="AdminId"></span>
+
+        <label asp-for="GenreId">Genre</label>
+        <select asp-for="GenreId" asp-items="ViewBag.GenreId"></select>
+        <span asp-validation-for="GenreId"></span>
+
+        <button type="submit">Create show</button>
     </form>
-
-    <div>
-        <a asp-action="Index">Back to List</a>
-    </div>
+        <button asp-action="Shows">Cancel</button>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
 
