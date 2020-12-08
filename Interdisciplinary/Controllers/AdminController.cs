@@ -25,11 +25,10 @@ namespace Interdisciplinary.Controllers {
 
         [HttpPost]
         public IActionResult Index(Admin admin) {
-            ICollection<Show> shows = db.Shows.ToList<Show>();
+            ICollection<Show> shows = db.Shows.ToList();
 
             foreach (Admin dbAdmin in db.Admins) {
                 if (dbAdmin.Username == admin.Username && dbAdmin.Password == admin.Password) {
-                  
                     return View("Shows", shows);
                 }
             }
@@ -37,6 +36,19 @@ namespace Interdisciplinary.Controllers {
         }
 
         public IActionResult CreateShow() {
+            return View("CreateShow");
+        }
+
+        public IActionResult UpdateShow() {
+            return View("UpdateShow");
+            //< a asp - action = "UpdateShow" asp - route - id = "@show.ShowId" > Update </ a >
+        }
+
+        public IActionResult DeleteShow(Show show) {
+
+            // Remove show from database
+
+            // Return to updated list of shows
             return View("CreateShow");
         }
 

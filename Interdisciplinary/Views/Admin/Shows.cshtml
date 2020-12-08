@@ -18,58 +18,24 @@
     </div>
 
     <table>
-
         @{
             foreach (Show show in Model) {
                 <tr>
                     <td>@show.Title</td>
-                    <td class="green"><a>UPDATE</a></td>
-                    <td class="red"><a>DELETE</a></td>
+                    <td class="green">
+                        @*<a class="@show.ShowId" href="@Url.Action("UpdateShow", Model)">UPDATE</a>*@
+                        <a asp-action="UpdateShow" asp-route-id="@show.ShowId">Update</a>
+                    </td>
+                    <td class="red">
+                        <a class="@show.ShowId" href="@Url.Action("DeleteShow")">DELETE</a>
+                    </td>
                 </tr>
             }
-
         }
-        @*<tr>
-            <td>LA TRAVIATA</td>
-            <td class="green"><a>UPDATE</a></td>
-            <td class="red"><a>DELETE</a></td>
-        </tr>
-        <tr>
-            <td>LA TRAVIATA</td>
-            <td>UPDATE</td>
-            <td>DELETE</td>
-        </tr>
-        <tr>
-            <td>LA TRAVIATA</td>
-            <td>UPDATE</td>
-            <td>DELETE</td>
-        </tr>
-        <tr>
-            <td>LA TRAVIATA</td>
-            <td>UPDATE</td>
-            <td>DELETE</td>
-        </tr>
-        <tr>
-            <td>LA TRAVIATA</td>
-            <td>UPDATE</td>
-            <td>DELETE</td>
-        </tr>*@
         <tr>
             <td colspan="3" class="gray"><a href="@Url.Action("CreateShow")">CREATE SHOW</a></td>
         </tr>
     </table>
-
-
-    <h2>Admin shows list</h2>
-   
-    @{ 
-        foreach(Show show in Model) {
-            <h2>@show.Title</h2>
-        }
-
-    }
-
-
 
 </body>
 </html>
