@@ -26,7 +26,7 @@
                         <a asp-action="UpdateShow" asp-route-id="@show.ShowId">Update</a>
                     </td>
                     <td class="red">
-                        <a class="@show.ShowId" href="@Url.Action("DeleteShow")">DELETE</a>
+                        <a asp-action="DeleteShow" asp-route-id="@show.ShowId">Delete</a>
                     </td>
                 </tr>
             }

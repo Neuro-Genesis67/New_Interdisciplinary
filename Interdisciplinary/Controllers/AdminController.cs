@@ -19,6 +19,8 @@ namespace Interdisciplinary.Controllers {
             db = dbContext;
         }
 
+
+        // ----------- Login -----------
         public IActionResult Index() {
             return View();
         }
@@ -36,21 +38,15 @@ namespace Interdisciplinary.Controllers {
         }
 
 
-        
-        [HttpPost]
-        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
-            if (ModelState.IsValid) {
-                db.Add(show);
-                await db.SaveChangesAsync();
-            }
-        }
-
+        // ----------- List of shows -----------
         public IActionResult Shows() {
 
             ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
 
+
+        // ----------- Create -----------
         public IActionResult CreateShow() {
 
             ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId");
@@ -58,6 +54,19 @@ namespace Interdisciplinary.Controllers {
 
             return View("CreateShow");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
+
+            if (ModelState.IsValid) {
+                db.Add(show);
+                await db.SaveChangesAsync();
+            }
+
+            ICollection<Show> shows = db.Shows.ToList();
+            return View("Shows", shows);
+        }
+
 
         // ----------- Update -----------
         public IActionResult UpdateShow(int? id) {
@@ -85,36 +94,15 @@ namespace Interdisciplinary.Controllers {
         }
 
 
+        // ----------- Delete -----------
+        public async Task<IActionResult> DeleteShow(int? id) {
 
+            Show show = await db.Shows.FindAsync(id);
+            db.Shows.Remove(show);
+            await db.SaveChangesAsync();
 
-
-
-
-
-
-
-
-
-
-
-        public IActionResult DeleteShow(Show show) {
-
-            // Remove show from database
-
-            // Return to updated list of shows
-            return View("CreateShow");
+            ICollection<Show> shows = db.Shows.ToList();
+            return View("Shows", shows);
         }
-
-        // Validation code from Jes
-        //if (ModelState.IsValid) {​​ // validation succeeded
-
-        // return View("success", model);
-
-        //}
-        //else { // validation failed
-
-        //return View(model);
-        //}
-
     }
 }
