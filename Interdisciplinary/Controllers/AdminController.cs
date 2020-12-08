@@ -35,14 +35,17 @@ namespace Interdisciplinary.Controllers {
             return View();
         }
 
+
         
         [HttpPost]
-        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show)
-        {
+        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
             if (ModelState.IsValid) {
                 db.Add(show);
                 await db.SaveChangesAsync();
             }
+        }
+
+        public IActionResult Shows() {
 
             ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
@@ -50,19 +53,49 @@ namespace Interdisciplinary.Controllers {
 
         public IActionResult CreateShow() {
 
-            //selectbox med 
-            // 1: valgmuligheder
-            // 2: De rette beskrivelser (genre title og ikke genreId)
             ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId");
             ViewData["GenreId"] = new SelectList(db.Genres, "GenreId", "Title");
 
             return View("CreateShow");
         }
 
-        public IActionResult UpdateShow() {
-            return View("UpdateShow");
-            //< a asp - action = "UpdateShow" asp - route - id = "@show.ShowId" > Update </ a >
+        // ----------- Update -----------
+        public IActionResult UpdateShow(int? id) {
+            ViewData["ShowId"] = id;
+
+            foreach (Show show in db.Shows) {
+                if (show.ShowId == id) {
+                    ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId", show.AdminId);
+                    ViewData["GenreId"] = new SelectList(db.Genres, "GenreId", "Title",   show.GenreId);
+
+                    return View("UpdateShow", show);
+                }
+            }
+            return View("Shows");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateShow(int id, [Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
+            show.ShowId = id;
+            db.Update(show);
+            await db.SaveChangesAsync();
+
+            ICollection<Show> shows = db.Shows.ToList();
+            return View("Shows", shows);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public IActionResult DeleteShow(Show show) {
 

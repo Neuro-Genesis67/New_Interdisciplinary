@@ -23,7 +23,6 @@
                 <tr>
                     <td>@show.Title</td>
                     <td class="green">
-                        @*<a class="@show.ShowId" href="@Url.Action("UpdateShow", Model)">UPDATE</a>*@
                         <a asp-action="UpdateShow" asp-route-id="@show.ShowId">Update</a>
                     </td>
                     <td class="red">
