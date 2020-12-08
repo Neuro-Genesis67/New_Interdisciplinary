@@ -16,29 +16,16 @@
         <li>MY CART</li>
     </ul>
 
-
     <h1>REPERTOIRE</h1>
     <div class="box">
         <p class="exampleText">.</p>
     </div>
 
-    @*<img src="https://i.ibb.co/zPGkR3q/la-traviata.png" alt="La Traviata">
-        <h3>Genre</h3>
-        <h2>Title</h2>
-        <p class="date">Date</p>
-        <p class="tickets">Available tickets</p>
-        <div class="btn-group">
-            <button class="button">BUY TICKET</button>
-            <button class="price">289DKK</button>
-        </div>*@
-
-    <button onclick="doit()"></button>
-
     <section class="grid-container">
         @{
             foreach (Show show in Model) {
                 <div class="grid-item">
-                    <img src="@show.ImageUrl" alt="@show.Title">
+                    <img src="@show.ImageUrl" alt="@show.Title">n
                     <h3>@show.Genre</h3>
                     <h2>@show.Title</h2>
                     <p class="date">@show.Date.Year/@show.Date.Month/@show.Date.Day</p>
