@@ -22,7 +22,7 @@ namespace Interdisciplinary.Models {
         public Genre Genre            { get; set; } // Navigation property
         public int GenreId            { get; set; } // FK
 
-        public Admin Admin            { get; set; } // Navigation propery
+        public Admin Admin            { get; set; } // Navigation property
         public int AdminId            { get; set; } // FK
     }
 }

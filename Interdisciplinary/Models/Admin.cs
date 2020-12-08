@@ -17,7 +17,7 @@ namespace Interdisciplinary.Models {
         public string Username { get; set; }
         
         [Required]
-        public string Password { get; set; } // Might use a type meant for passwords later on
+        public string Password { get; set; } 
 
     }
 }
