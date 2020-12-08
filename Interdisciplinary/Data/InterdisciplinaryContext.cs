@@ -38,9 +38,7 @@ namespace Interdisciplinary.Data {
                     Price = 189,
                     Date = new DateTime(2021, 1, 06),
                     ImageUrl = "https://i.ibb.co/zPGkR3q/la-traviata.png",
-                    //Genre = ??? 
                     GenreId = 1,
-                    //Admin = ???
                     AdminId = 1
                 },
                 new Show {
@@ -50,9 +48,7 @@ namespace Interdisciplinary.Data {
                     Price = 169,
                     Date = new DateTime(2020, 12, 3),
                     ImageUrl = "https://i.ibb.co/KhKHJv9/the-four-seasons.png",
-                    //Genre = ??? 
                     GenreId = 2,
-                    //Admin = ???
                     AdminId = 2
                 }
             );
