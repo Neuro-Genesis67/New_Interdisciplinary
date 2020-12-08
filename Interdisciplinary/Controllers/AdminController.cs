@@ -35,12 +35,27 @@ namespace Interdisciplinary.Controllers {
             return View();
         }
 
+
+        
+        [HttpPost]
+        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
+            if (ModelState.IsValid) {
+                db.Add(show);
+                await db.SaveChangesAsync();
+            }
+        }
+
         public IActionResult Shows() {
+
             ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
 
         public IActionResult CreateShow() {
+
+            ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId");
+            ViewData["GenreId"] = new SelectList(db.Genres, "GenreId", "Title");
+
             return View("CreateShow");
         }
 

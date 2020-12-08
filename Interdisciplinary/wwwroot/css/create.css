@@ -63,7 +63,7 @@ label + input {
     margin: 0 30% 0 3%;
 }
 
-button {
+button, .save-button input {
     background-color: #740000;
     border: none;
     color: white;
