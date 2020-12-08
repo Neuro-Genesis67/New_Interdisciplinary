@@ -49,7 +49,7 @@ namespace Interdisciplinary.Controllers
         // GET: Show/Create
         public IActionResult Create()
         {
-            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "Password");
+            ViewData["AdminId"] = new SelectList(_context.Admins, "AdminId", "AdminId");
             ViewData["GenreId"] = new SelectList(_context.Genres, "GenreId", "GenreId");
             return View();
         }
