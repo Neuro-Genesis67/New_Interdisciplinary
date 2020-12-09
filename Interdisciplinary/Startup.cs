@@ -49,7 +49,7 @@ namespace Interdisciplinary {
                 // default pattern if nothing else is specified in the URL
                 endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Catalog}/{action=Index}/{id?}");
+                pattern: "{controller=Admin}/{action=Index}/{id?}");
 
             });
         }

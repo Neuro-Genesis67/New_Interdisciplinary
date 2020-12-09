@@ -17,16 +17,24 @@ namespace Interdisciplinary.Controllers {
         }
 
         public IActionResult Index() {
+
+            //if (sortOrder == null) {
+            //    return View("Index");
+            //} else {
+
+            //}
+            ////sort list based on sortOrder
+
             ICollection<Show> shows = db.Shows.ToList<Show>();
 
             return View(shows);
         }
 
         // ----------- Buy Ticket -----------
-        public async Task<IActionResult> BuyTicketAsync(int? id) {
+        public IActionResult BuyTicketAsync(int? id) {
             
             // Get the show with that id
-            Show show = await db.Shows.FindAsync(id);
+            Show show = db.Shows.Find(id);
 
             int tickets = show.AvailableTickets - 1;
             if (tickets >= 0) {
@@ -40,5 +48,15 @@ namespace Interdisciplinary.Controllers {
             ICollection<Show> shows = db.Shows.ToList<Show>();
             return View("Index", shows);
         }
+
+        //public IActionResult SortByGenre() {
+        //    ICollection<Show> shows = db.Shows.ToList<Show>();
+
+        //    return View(shows);
+        //}
+
+        //public async Task<IActionResult> Index(string sortOrder) {
+        //    //sorting stuff here
+        //}
     }
 }
