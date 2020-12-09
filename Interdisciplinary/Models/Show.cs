@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Interdisciplinary.Models {
     public class Show {
@@ -11,12 +12,15 @@ namespace Interdisciplinary.Models {
         
         // ---------------------
 
+        [Required]
         public string Title            { get; set; }
         public int    AvailableTickets { get; set; }
         public int    Price            { get; set; }
 
         [Column(TypeName = "datetime2")]
         public DateTime Date           { get; set; }
+
+        [Required]
         public string ImageUrl         { get; set; }
 
         public Genre Genre            { get; set; } // Navigation property
