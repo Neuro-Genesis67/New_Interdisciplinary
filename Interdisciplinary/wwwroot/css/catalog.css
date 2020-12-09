@@ -123,10 +123,10 @@ h3 {
 
 .grid-item {
     width: 90%;
-    padding: 0 5%;
+    margin: 0 5% 10% 5%;
     text-align: center;
 }
 
-    .grid-item img {
-        width: 100%;
-    }
+.grid-item img {
+    width: 100%;
+}
