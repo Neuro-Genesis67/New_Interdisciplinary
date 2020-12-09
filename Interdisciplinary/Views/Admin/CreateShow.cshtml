@@ -14,29 +14,30 @@
 <body>
 
     <h1>CREATE SHOW</h1>
-
-
+    <div class="box">
+        <p class="exampleText">.</p>
+    </div>
 
     <form asp-action="CreateShow" method="post">
         <label asp-for="Title">Title </label>
         <input asp-for="Title" />
-        <div><span asp-validation-for="Title"></span></div><br />
+        <div><span asp-validation-for="Title"></span></div>
 
         <label asp-for="AvailableTickets">AvailableTickets </label>
         <input asp-for="AvailableTickets" />
-        <div><span asp-validation-for="AvailableTickets"></span></div><br />
+        <div><span asp-validation-for="AvailableTickets"></span></div>
 
         <label asp-for="Price">Price </label>
         <input asp-for="Price" />
-        <div><span asp-validation-for="Price"></span></div><br />
+        <div><span asp-validation-for="Price"></span></div>
 
         <label asp-for="ImageUrl">ImageUrl </label>
         <input asp-for="ImageUrl" />
-        <div><span asp-validation-for="ImageUrl"></span></div><br />
+        <div><span asp-validation-for="ImageUrl"></span></div>
 
         <label asp-for="Date">Date </label>
         <input asp-for="Date" />
-        <div><span asp-validation-for="Date"></span></div><br />
+        <div><span asp-validation-for="Date"></span></div>
 
         <label asp-for="AdminId"></label>
         <select asp-for="AdminId" asp-items="ViewBag.AdminId"></select>
@@ -46,11 +47,12 @@
         <select asp-for="GenreId" asp-items="ViewBag.GenreId"></select>
         <span asp-validation-for="GenreId"></span>
 
-        <button type="submit">Create show</button>
+        <button class="green" type="submit">Create</button>
+        <a class="gray" asp-action="Shows">Cancel</a>
     </form>
 
     <div>
-        <a asp-action="Shows">Cancel</a>
+        
     </div>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")

@@ -47,7 +47,7 @@ form {
     text-align: center;
 }
 
-label, input {
+label, input, select {
     display: inline-block;
     margin: 10px;
 }
@@ -58,12 +58,19 @@ label {
     font-weight: bold;
 }
 
-label + input {
+label + input + select {
     border-style: solid;
     margin: 0 30% 0 3%;
 }
 
-button, .save-button input {
+select {
+    display: inline-block;
+    margin: 10px;
+    border-style: solid;
+    margin: 0 30% 0 3%;
+}
+
+button, a {
     background-color: #740000;
     border: none;
     color: white;
@@ -81,15 +88,39 @@ button, .save-button input {
     background-color: #225702;
 }
 
-.gray, .gray button {
+.gray, .gray button, .gray a {
     background-color: #7D7D7D;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    margin: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-button:hover {
+.gray a {
+    background-color: #7D7D7D;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    margin: 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover, a:hover {
     opacity: 0.8;
 }
 
-button:focus {
+button:focus, a:focus {
     opacity: 0.8;
     outline: none;
     border: none;
