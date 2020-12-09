@@ -43,8 +43,12 @@ h3 {
 
 form {
     width: 80%;
-    margin: 25px auto;
+    margin: 25px;
     text-align: center;
+}
+
+input, select {
+    width: 191px;
 }
 
 label, input, select {
@@ -67,7 +71,6 @@ select {
     display: inline-block;
     margin: 10px;
     border-style: solid;
-    margin: 0 30% 0 3%;
 }
 
 button, a {
