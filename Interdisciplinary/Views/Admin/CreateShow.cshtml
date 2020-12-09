@@ -46,14 +46,13 @@
         <label asp-for="GenreId">Genre</label>
         <select asp-for="GenreId" asp-items="ViewBag.GenreId"></select> <br />
         <span asp-validation-for="GenreId"></span>
-
-        <button class="green" type="submit">Create</button>
-        <a class="gray" asp-action="Shows">Cancel</a>
-    </form>
-
-    <div>
         
-    </div>
+        <div class="button-flex-container">
+            <button class="green" type="submit">Create</button>
+            <a class="gray" asp-action="Shows">Cancel</a>
+        </div>
+
+    </form>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
 
