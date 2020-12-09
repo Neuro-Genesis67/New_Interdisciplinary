@@ -27,10 +27,14 @@ namespace Interdisciplinary.Controllers {
             
             // Get the show with that id
             Show show = await db.Shows.FindAsync(id);
-            int tickets = show.AvailableTickets - 1;
 
-            // Use stored procedure
-            db.Database.ExecuteSqlCommand("EXEC BuyTicket @ShowId = " + @id + ", @AvailableTickets = " + @tickets + ";");
+            int tickets = show.AvailableTickets - 1;
+            if (tickets >= 0) {
+                // Use stored procedure
+                db.Database.ExecuteSqlCommand("EXEC BuyTicket @ShowId = " + @id + ", @AvailableTickets = " + @tickets + ";");
+            } else {
+                // No more tickets to buy -> Do nothing
+            }
 
             // Reload catalog page
             ICollection<Show> shows = db.Shows.ToList<Show>();
