@@ -14,7 +14,7 @@
 <body>
 
     <h1>CREATE SHOW</h1>
-    
+
 
 
     <form asp-action="CreateShow" method="post">
@@ -48,7 +48,10 @@
 
         <button type="submit">Create show</button>
     </form>
-        <button asp-action="Shows">Cancel</button>
+
+    <div>
+        <a asp-action="Shows">Cancel</a>
+    </div>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
 
