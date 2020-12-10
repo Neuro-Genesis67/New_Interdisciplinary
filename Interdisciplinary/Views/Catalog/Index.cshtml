@@ -28,7 +28,17 @@
             foreach (Show show in Model) {
                 <div class="grid-item">
                     <img src="@show.ImageUrl" alt="@show.Title">
-                    <h3>@show.Genre</h3>
+            @{
+                if (show.GenreId == 1) {
+                    <h3>Opera</h3>
+                } else if (show.GenreId == 2) {
+                    <h3>Concert</h3>
+                } else if (show.GenreId == 3) {
+                    <h3>Play</h3>
+                } else if (show.GenreId == 4) {
+                    <h3>Ballet</h3>
+                }
+            }
                     <h2>@show.Title</h2>
                     <p class="date">@show.Date.Year/@show.Date.Month/@show.Date.Day</p>
                     <p class="tickets">@show.AvailableTickets Available tickets</p>

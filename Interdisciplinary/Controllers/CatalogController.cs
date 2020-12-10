@@ -12,10 +12,33 @@ namespace Interdisciplinary.Controllers {
 
         private InterdisciplinaryContext db;
 
-        public CatalogController(InterdisciplinaryContext dbContext) { db = dbContext; }
+        public CatalogController(InterdisciplinaryContext dbContext) { 
+            db = dbContext;
+            //AddGenresToShows();
+        }
+
+        //public void AddGenresToShows() {
+
+        //    ICollection<Show> shows = db.Shows.ToList<Show>();
+        //    // Go through all the shows we got from the database
+        //    foreach (Show show in shows) {
+        //        // get the shows genreId
+        //        int genreId = show.GenreId; // *1*
+
+        //        // Go through genres in the database and find the one with the genreId
+        //        foreach(Genre genre in db.Genres.ToList()) {
+        //            if (genre.GenreId == genreId) {
+        //                show.Genre = genre;
+        //            } else {
+        //                // If genreId is not the same as the show's genreId -> do nothing
+        //            }
+        //        }
+        //    }
+        //}
 
         public async Task<IActionResult> Index(string sortOrder) {
-            var shows = from s in db.Shows select s;
+            var shows = from show in db.Shows select show;
+            
             switch (sortOrder) {
                 case "genre":
                 shows = shows.OrderBy(s => s.GenreId);
