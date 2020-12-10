@@ -16,18 +16,25 @@ namespace Interdisciplinary.Controllers {
             db = dbContext;
         }
 
-        public IActionResult Index() {
+        public async Task<IActionResult> Index(string sortOrder) {
 
-            //if (sortOrder == null) {
-            //    return View("Index");
-            //} else {
+            var shows = from s in db.Shows select s;
 
-            //}
-            ////sort list based on sortOrder
+            switch (sortOrder) {
+                case "genre":
+                shows = shows.OrderBy(s => s.GenreId);
+                break;
 
-            ICollection<Show> shows = db.Shows.ToList<Show>();
+                case "price":
+                shows = shows.OrderBy(s => s.Price);
+                break;
 
-            return View(shows);
+                case "date":
+                shows = shows.OrderBy(s => s.Date);
+                break;
+            }
+
+            return View(await shows.AsNoTracking().ToListAsync());
         }
 
         // ----------- Buy Ticket -----------
