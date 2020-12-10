@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Interdisciplinary.Data;
+using Microsoft.AspNetCore.Session;
 
 namespace Interdisciplinary {
     public class Startup {
@@ -26,6 +27,7 @@ namespace Interdisciplinary {
             services.AddDbContext<InterdisciplinaryContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("InterdisciplinaryContextAzure")));
 
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,15 +43,15 @@ namespace Interdisciplinary {
             app.UseStaticFiles();
 
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints => {
 
                 // default pattern if nothing else is specified in the URL
                 endpoints.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Catalog}/{action=Index}/{id?}");
+                pattern: "{controller=Admin}/{action=Index}/{id?}");
 
             });
         }

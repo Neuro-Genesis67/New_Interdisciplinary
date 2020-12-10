@@ -7,17 +7,14 @@ using Interdisciplinary.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Interdisciplinary.Models;
-
-
+using Microsoft.AspNetCore.Http;
 
 namespace Interdisciplinary.Controllers {
     public class AdminController : Controller {
 
         private InterdisciplinaryContext db;
 
-        public AdminController(InterdisciplinaryContext dbContext) {
-            db = dbContext;
-        }
+        public AdminController(InterdisciplinaryContext dbContext) { db = dbContext; }
 
 
         // ----------- Login -----------
@@ -31,6 +28,7 @@ namespace Interdisciplinary.Controllers {
 
             foreach (Admin dbAdmin in db.Admins) {
                 if (dbAdmin.Username == admin.Username && dbAdmin.Password == admin.Password) {
+                    HttpContext.Session.SetInt32("AdminId", dbAdmin.AdminId);
                     return View("Shows", shows);
                 }
             }
@@ -40,7 +38,6 @@ namespace Interdisciplinary.Controllers {
 
         // ----------- List of shows -----------
         public IActionResult Shows() {
-
             ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
@@ -48,17 +45,14 @@ namespace Interdisciplinary.Controllers {
 
         // ----------- Create -----------
         public IActionResult CreateShow() {
-
-            ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId");
             ViewData["GenreId"] = new SelectList(db.Genres, "GenreId", "Title");
-
             return View("CreateShow");
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
-
+        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId")] Show show) {
             if (ModelState.IsValid) {
+                show.AdminId = (int)HttpContext.Session.GetInt32("AdminId");
                 db.Add(show);
                 await db.SaveChangesAsync();
             }
@@ -80,7 +74,8 @@ namespace Interdisciplinary.Controllers {
                     return View("UpdateShow", show);
                 }
             }
-            return View("Shows");
+            ICollection<Show> shows = db.Shows.ToList();
+            return View("Shows", shows);
         }
 
         [HttpPost]

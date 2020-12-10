@@ -12,14 +12,10 @@ namespace Interdisciplinary.Controllers {
 
         private InterdisciplinaryContext db;
 
-        public CatalogController(InterdisciplinaryContext dbContext) {
-            db = dbContext;
-        }
+        public CatalogController(InterdisciplinaryContext dbContext) { db = dbContext; }
 
         public async Task<IActionResult> Index(string sortOrder) {
-
             var shows = from s in db.Shows select s;
-
             switch (sortOrder) {
                 case "genre":
                 shows = shows.OrderBy(s => s.GenreId);
@@ -33,37 +29,22 @@ namespace Interdisciplinary.Controllers {
                 shows = shows.OrderBy(s => s.Date);
                 break;
             }
-
             return View(await shows.AsNoTracking().ToListAsync());
         }
 
         // ----------- Buy Ticket -----------
         public IActionResult BuyTicketAsync(int? id) {
-            
-            // Get the show with that id
             Show show = db.Shows.Find(id);
-
             int tickets = show.AvailableTickets - 1;
+
             if (tickets >= 0) {
-                // Use stored procedure
                 db.Database.ExecuteSqlCommand("EXEC BuyTicket @ShowId = " + @id + ", @AvailableTickets = " + @tickets + ";");
             } else {
                 // No more tickets to buy -> Do nothing
             }
 
-            // Reload catalog page
             ICollection<Show> shows = db.Shows.ToList<Show>();
             return View("Index", shows);
         }
-
-        //public IActionResult SortByGenre() {
-        //    ICollection<Show> shows = db.Shows.ToList<Show>();
-
-        //    return View(shows);
-        //}
-
-        //public async Task<IActionResult> Index(string sortOrder) {
-        //    //sorting stuff here
-        //}
     }
 }
