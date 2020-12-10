@@ -31,7 +31,7 @@
                     <p class="date">@show.Date.Year/@show.Date.Month/@show.Date.Day</p>
                     <p class="tickets">@show.AvailableTickets Available tickets</p>
                     <div class="btn-group">
-                        <button class="button">BUY TICKET</button>
+                        <a class="button" asp-action="BuyTicket" asp-route-id="@show.ShowId">BUY TICKET</a>
                         <button class="price">@show.Price DKK</button>
                     </div>
                 </div>
