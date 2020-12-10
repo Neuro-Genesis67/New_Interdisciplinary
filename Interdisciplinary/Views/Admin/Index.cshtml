@@ -11,7 +11,7 @@
     <script src="/js/admin.js"></script>
     <title>Admin login</title>
 </head>
-<body>
+<body id="funky">
     <h1>ADMIN LOGIN</h1>
     <div class="box">
         <p class="exampleText">.</p>
@@ -23,11 +23,15 @@
         <div><span asp-validation-for="Username"></span></div><br />
 
         <label asp-for="Password">PASSWORD </label>
-        <input asp-for="Password" type="password" />
+        <input id="password" asp-for="Password" type="password" />
         <div><span asp-validation-for="Password"></span></div><br />
 
         <button type="submit">LOGIN</button>
     </form>
+
+    <div class="funky-btn">
+        <button onclick="getFunky();">GET FUNKY</button>
+    </div>
 
     @await Html.PartialAsync("_ValidationScriptsPartial")
 

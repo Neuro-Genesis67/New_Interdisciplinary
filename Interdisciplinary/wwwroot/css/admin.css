@@ -4,6 +4,10 @@
     font-family: 'Barlow', sans-serif;
 }
 
+.funky-btn {
+    margin-top: 50px;
+    text-align: center;
+}
 
 .box {
     background-color: #740000;
