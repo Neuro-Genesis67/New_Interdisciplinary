@@ -18,9 +18,6 @@
         <p class="exampleText">.</p>
     </div>
 
-    <h1>VB: @ViewBag.CurrentUser</h1>
-    <h1>VD: @ViewData["CurrentUser"]</h1>
-    <h1>Test: @ViewData["tester"]</h1>
     <form asp-action="CreateShow" method="post">
         <label asp-for="Title">Title </label>
         <input asp-for="Title" />
@@ -42,9 +39,9 @@
         <input asp-for="Date" />
         <div><span asp-validation-for="Date"></span></div>
 
-        <label asp-for="AdminId"></label>
+        @*<label asp-for="AdminId"></label>
         <select asp-for="AdminId" asp-items="ViewBag.AdminId"></select><br />
-        <span asp-validation-for="AdminId"></span>
+        <span asp-validation-for="AdminId"></span>*@
 
         <label asp-for="GenreId">Genre</label>
         <select asp-for="GenreId" asp-items="ViewBag.GenreId"></select> <br />

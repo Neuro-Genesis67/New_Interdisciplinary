@@ -13,12 +13,8 @@ namespace Interdisciplinary.Controllers {
     public class AdminController : Controller {
 
         private InterdisciplinaryContext db;
-        private ICollection<Show> shows;
 
-        public AdminController(InterdisciplinaryContext dbContext) { 
-            db = dbContext;
-            shows = db.Shows.ToList();
-        }
+        public AdminController(InterdisciplinaryContext dbContext) { db = dbContext; }
 
 
         // ----------- Login -----------
@@ -28,7 +24,7 @@ namespace Interdisciplinary.Controllers {
 
         [HttpPost]
         public IActionResult Index(Admin admin) {
-            //ICollection<Show> shows = db.Shows.ToList(); Code cleanup for a later time
+            ICollection<Show> shows = db.Shows.ToList();
 
             foreach (Admin dbAdmin in db.Admins) {
                 if (dbAdmin.Username == admin.Username && dbAdmin.Password == admin.Password) {
@@ -42,30 +38,26 @@ namespace Interdisciplinary.Controllers {
 
         // ----------- List of shows -----------
         public IActionResult Shows() {
-            //ICollection<Show> shows = db.Shows.ToList(); Code cleanup for a later time
+            ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
 
 
         // ----------- Create -----------
         public IActionResult CreateShow() {
-            var currentUser = HttpContext.Session.GetInt32("AdminId");
-            ViewData["tester"] = 5;
-            ViewData["CurrentUser"] = currentUser;
-            ViewData["AdminId"] = new SelectList(db.Admins, "AdminId", "AdminId");
             ViewData["GenreId"] = new SelectList(db.Genres, "GenreId", "Title");
-
             return View("CreateShow");
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId,AdminId")] Show show) {
+        public async Task<IActionResult> CreateShow([Bind("Title,AvailableTickets,Price,Date,ImageUrl,GenreId")] Show show) {
             if (ModelState.IsValid) {
+                show.AdminId = (int)HttpContext.Session.GetInt32("AdminId");
                 db.Add(show);
                 await db.SaveChangesAsync();
             }
 
-            //ICollection<Show> shows = db.Shows.ToList(); Code cleanup for a later time
+            ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
 
@@ -82,7 +74,8 @@ namespace Interdisciplinary.Controllers {
                     return View("UpdateShow", show);
                 }
             }
-            return View("Shows");
+            ICollection<Show> shows = db.Shows.ToList();
+            return View("Shows", shows);
         }
 
         [HttpPost]
@@ -91,7 +84,7 @@ namespace Interdisciplinary.Controllers {
             db.Update(show);
             await db.SaveChangesAsync();
 
-            //ICollection<Show> shows = db.Shows.ToList(); Code cleanup for a later time
+            ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
 
@@ -103,7 +96,7 @@ namespace Interdisciplinary.Controllers {
             db.Shows.Remove(show);
             await db.SaveChangesAsync();
 
-            //ICollection<Show> shows = db.Shows.ToList(); Code cleanup for a later time
+            ICollection<Show> shows = db.Shows.ToList();
             return View("Shows", shows);
         }
     }
