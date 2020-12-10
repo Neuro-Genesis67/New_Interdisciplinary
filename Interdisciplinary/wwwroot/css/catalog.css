@@ -12,13 +12,24 @@
     padding: 0;
 }
 
-.nav li {
+li {
     display: inline-block;
-    font-size: 20px;
-    color: white;
-    font-weight: 500;
-    padding: 20px;
 }
+
+    .nav li a {
+        background-color: #7D7D7D;
+        display: inline-block;
+        font-size: 20px;
+        color: white;
+        font-weight: 500;
+        padding: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
 
 .box {
     background-color: #740000;
@@ -99,6 +110,10 @@ h3 {
 
 .btn-group .button:hover {
     background-color: #5C0000;
+}
+
+a:hover {
+    opacity: 0.9;
 }
 
 .btn-group .button:focus {
