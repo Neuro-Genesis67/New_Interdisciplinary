@@ -13,7 +13,9 @@
 <body>
 
     <ul class="nav">
-        <li>MY CART</li>
+        <li><a asp-action="Index" asp-route-sortOrder="genre">Sort by genre</a></li>
+        <li><a asp-action="Index" asp-route-sortOrder="price">Sort by price</a></li>
+        <li><a asp-action="Index" asp-route-sortOrder="date"> Sort by date </a></li>
     </ul>
 
     <h1>REPERTOIRE</h1>
