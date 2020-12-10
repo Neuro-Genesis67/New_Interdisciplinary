@@ -132,8 +132,7 @@ a:hover {
 .grid-container {
     width: 100%;
     display: grid;
-    grid-template-columns: 30% 30% 30%;
-    padding: 0 5%;
+    grid-template-columns: 33.3% 33.3% 33.3%;
 }
 
 .grid-item {
