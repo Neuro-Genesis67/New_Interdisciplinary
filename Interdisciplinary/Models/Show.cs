@@ -13,20 +13,20 @@ namespace Interdisciplinary.Models {
         // ---------------------
 
         [Required]
-        public string Title            { get; set; }
-        public int    AvailableTickets { get; set; }
-        public int    Price            { get; set; }
+        public string   Title            { get; set; }
+        public int      AvailableTickets { get; set; }
+        public int      Price            { get; set; }
 
         [Column(TypeName = "datetime2")]
-        public DateTime Date           { get; set; }
+        public DateTime Date             { get; set; }
 
         [Required]
-        public string ImageUrl         { get; set; }
+        public string   ImageUrl         { get; set; }
 
-        public Genre Genre            { get; set; } // Navigation property
-        public int GenreId            { get; set; } // FK
+        public Genre    Genre            { get; set; } // Navigation property
+        public int      GenreId          { get; set; } // FK
 
-        public Admin Admin            { get; set; } // Navigation property
-        public int AdminId            { get; set; } // FK
+        public Admin    Admin            { get; set; } // Navigation property
+        public int      AdminId          { get; set; } // FK
     }
 }

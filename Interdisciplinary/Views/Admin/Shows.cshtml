@@ -19,17 +19,17 @@
                          
     <table>
         @{
-            foreach (Show show in Model) {
-                <tr>
-                    <td>@show.Title</td>
-                    <td class="green">
-                        <a asp-action="UpdateShow" asp-route-id="@show.ShowId">Update</a>
-                    </td>
-                    <td class="red">
-                        <a asp-action="DeleteShow" asp-route-id="@show.ShowId">Delete</a>
-                    </td>
-                </tr>
-            }
+        foreach (Show show in Model) {
+            <tr>
+                <td>@show.Title</td>
+                <td class="green">
+                    <a asp-action="UpdateShow" asp-route-id="@show.ShowId">Update</a>
+                </td>
+                <td class="red">
+                    <a asp-action="DeleteShow" asp-route-id="@show.ShowId">Delete</a>
+                </td>
+            </tr>
+        }
         }
         <tr>
             <td colspan="3" class="gray"><a href="@Url.Action("CreateShow")">CREATE SHOW</a></td>
