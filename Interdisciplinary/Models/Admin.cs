@@ -7,17 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Interdisciplinary.Models {
     public class Admin {
-        // Admins are hardcoded in the database
 
         public int    AdminId  { get; set; } // PK
-
         // ---------------------
-
         [Required]
         public string Username { get; set; }
         
         [Required]
         public string Password { get; set; } 
-
     }
 }
