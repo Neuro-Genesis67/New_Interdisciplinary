@@ -13,3 +13,18 @@ function getFunky() {
         state = 0;
     }
 }
+
+//function passwordCheck() {
+//
+//    let pword = "";
+//    console.log(pword);
+//
+//    if (document.querySelectorAll('input[type="password"]').value == pword) {
+//        return true;
+//    }
+//    else {
+//        // alert("Username and Password doesn't match.");
+//        document.getElementById('error').innerHTML = "Username and Password doesn't match.";
+//        return false;
+//    }
+//}
